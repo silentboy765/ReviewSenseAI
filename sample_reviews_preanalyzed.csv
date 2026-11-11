@@ -1,0 +1,61 @@
+product_name,review,rating,date,customer_id,VADER Sentiment,VADER Compound,Duplicate Review,AI Sentiment,AI Confidence,Methods Agree
+Wireless Headphones,The battery lasts all day and the sound is beautifully clear.,5,2026-01-03,C001,Positive,0.743,False,Positive,0.9641327857971191,True
+Wireless Headphones,"Comfortable fit, easy pairing, and excellent noise cancellation.",5,2026-01-04,C002,Positive,0.9081,False,Positive,0.9209849238395691,True
+Wireless Headphones,Great audio quality for the price; I use them every day.,5,2026-01-05,C003,Positive,0.6249,False,Positive,0.9778093695640564,True
+Wireless Headphones,The left earbud stopped working after only two weeks.,1,2026-01-06,C004,Negative,-0.2263,False,Negative,0.7364522814750671,True
+Wireless Headphones,Connection keeps dropping and customer support did not help.,1,2026-01-07,C005,Positive,0.1134,False,Negative,0.9305576682090759,False
+Wireless Headphones,They work as expected and arrived in a standard box.,3,2026-01-08,C006,Neutral,0.0,False,Positive,0.5392672419548035,False
+Wireless Headphones,Fantastic headphones with rich sound and a comfortable design.,5,2026-01-09,C007,Positive,0.8885,False,Positive,0.981495201587677,True
+Wireless Headphones,Battery drains quickly and the charging case feels cheap.,2,2026-01-10,C008,Neutral,0.0,False,Neutral,0.47492676973342896,True
+Wireless Headphones,The headphones connect to my phone and include a charging cable.,3,2026-01-11,C009,Neutral,0.0,False,Neutral,0.8320745825767517,True
+Wireless Headphones,Good value and simple to set up; the microphone is clear.,4,2026-01-12,C010,Positive,0.7845,False,Positive,0.9352978467941284,True
+Wireless Headphones,Distorted sound and frustrating buttons make these hard to use.,1,2026-01-13,C011,Negative,-0.7184,False,Negative,0.8905025720596313,True
+Wireless Headphones,"Excellent build quality, long battery life, and fast delivery.",5,2026-01-14,C012,Positive,0.5719,False,Positive,0.956261157989502,True
+Wireless Headphones,"The package included headphones, a cable, and instructions.",3,2026-01-15,C013,Neutral,0.0,False,Neutral,0.8874362111091614,True
+Wireless Headphones,Uncomfortable after an hour and the plastic feels flimsy.,2,2026-01-16,C014,Negative,-0.3818,False,Negative,0.9037926197052002,True
+Wireless Headphones,Really happy with the purchase; calls sound crisp.,5,2026-01-17,C015,Positive,0.6115,False,Positive,0.9818446636199951,True
+Wireless Headphones,Poor quality and difficult to connect; I want a refund.,1,2026-01-18,C016,Negative,-0.6486,False,Negative,0.929617166519165,True
+Wireless Headphones,Works perfectly with my laptop and phone. Great purchase!,5,2026-01-19,C017,Positive,0.8622,False,Positive,0.988120436668396,True
+Wireless Headphones,I received the item yesterday and have used it once.,3,2026-01-20,C018,Neutral,0.0,False,Neutral,0.8338508605957031,True
+Wireless Headphones,The ear cushions are soft and the controls are straightforward.,4,2026-01-21,C019,Neutral,0.0,False,Positive,0.8219296932220459,False
+Wireless Headphones,The charging port is loose and the headphones shut off randomly.,1,2026-01-22,C020,Negative,-0.3182,False,Negative,0.7425301671028137,True
+Everyday Backpack,Sturdy stitching and padded straps make this a very comfortable bag.,5,2026-01-23,C021,Positive,0.5563,False,Positive,0.9221499562263489,True
+Everyday Backpack,The zipper broke on the first commute and the seller ignored my message.,1,2026-01-24,C022,Negative,-0.6249,False,Negative,0.8825442790985107,True
+Everyday Backpack,"It fits my laptop, lunch, and notebook without feeling bulky.",5,2026-01-25,C023,Negative,-0.0951,False,Positive,0.6340551376342773,False
+Everyday Backpack,The color is slightly different from the product photos.,3,2026-01-26,C024,Neutral,0.0,False,Neutral,0.9054874777793884,True
+Everyday Backpack,Excellent material and useful pockets; worth every dollar.,5,2026-01-27,C025,Positive,0.8176,False,Positive,0.9730952978134155,True
+Everyday Backpack,The shoulder strap seam started coming apart after a week.,1,2026-01-28,C026,Neutral,0.0,False,Negative,0.5549508929252625,False
+Everyday Backpack,Arrived on time in a plain shipping box.,3,2026-01-29,C027,Neutral,0.0,False,Positive,0.6900293827056885,False
+Everyday Backpack,The fabric feels durable and the bottle pocket is handy.,4,2026-01-30,C028,Neutral,0.0,False,Positive,0.9456447958946228,False
+Everyday Backpack,Much smaller than the listing suggests and poor value for the price.,2,2026-01-31,C029,Negative,-0.1779,False,Negative,0.8804574608802795,True
+Everyday Backpack,"Easy to adjust, comfortable for travel, and neatly finished.",5,2026-02-01,C030,Positive,0.8225,False,Positive,0.7779281139373779,True
+Everyday Backpack,A loose thread appeared on the first day and the zipper catches.,2,2026-02-02,C031,Negative,-0.3182,False,Neutral,0.5913336277008057,False
+Everyday Backpack,The laptop sleeve protects my computer and the bag stays balanced.,5,2026-02-03,C032,Positive,0.3182,False,Positive,0.616089940071106,True
+Everyday Backpack,"Nothing special, but it carries my books as described.",3,2026-02-04,C033,Negative,-0.1603,False,Neutral,0.638274610042572,False
+Everyday Backpack,The fabric tore near the handle and support offered no replacement.,1,2026-02-05,C034,Positive,0.128,False,Negative,0.8255850672721863,False
+Everyday Backpack,"Lightweight, roomy, and comfortable even when fully packed.",5,2026-02-06,C035,Positive,0.5106,False,Positive,0.6726720929145813,True
+Everyday Backpack,The top handle is too thin and hurts when the bag is heavy.,2,2026-02-07,C036,Negative,-0.3182,False,Negative,0.7557810544967651,True
+Everyday Backpack,The package arrived with the backpack and care card.,3,2026-02-08,C037,Positive,0.4939,False,Neutral,0.7232233285903931,False
+Everyday Backpack,"Great stitching, smooth zippers, and a thoughtful pocket layout.",5,2026-02-09,C038,Positive,0.7717,False,Positive,0.95713871717453,True
+Everyday Backpack,The straps slip loose and the bag feels cheaply made.,1,2026-02-10,C039,Negative,-0.3182,False,Negative,0.4907044768333435,True
+Everyday Backpack,It is a standard backpack with enough room for daily use.,3,2026-02-11,C040,Neutral,0.0,False,Neutral,0.5809845924377441,True
+Daily Moisturizer,Absorbs quickly and leaves my skin soft without a greasy feeling.,5,2026-02-12,C041,Negative,-0.0951,False,Positive,0.48813024163246155,False
+Daily Moisturizer,The bottle leaked in transit and the cap was cracked.,1,2026-02-13,C042,Negative,-0.3182,False,Negative,0.7296319007873535,True
+Daily Moisturizer,A gentle formula with a light scent; my skin feels hydrated.,5,2026-02-14,C043,Positive,0.4404,False,Positive,0.8971836566925049,True
+Daily Moisturizer,The texture is normal and the bottle contains 100 milliliters.,3,2026-02-15,C044,Neutral,0.0,False,Neutral,0.5078226923942566,True
+Daily Moisturizer,Good ingredients and a reasonable price for the size.,4,2026-02-16,C045,Positive,0.4404,False,Positive,0.9285575151443481,True
+Daily Moisturizer,Strong fragrance irritated my skin and customer care did not respond.,1,2026-02-17,C046,Positive,0.5423,False,Negative,0.9030706882476807,False
+Daily Moisturizer,Arrived in a padded mailer with the seal intact.,3,2026-02-18,C047,Positive,0.2023,False,Neutral,0.651163637638092,False
+Daily Moisturizer,"Lightweight, non-greasy, and easy to apply every morning.",5,2026-02-19,C048,Positive,0.4404,False,Positive,0.7526076436042786,True
+Daily Moisturizer,The pump stopped working and there is no way to open the bottle.,2,2026-02-20,C049,Negative,-0.4767,False,Negative,0.8299338817596436,True
+Daily Moisturizer,My skin feels smoother and the moisturizer is excellent value.,5,2026-02-21,C050,Positive,0.7269,False,Positive,0.9697473049163818,True
+Daily Moisturizer,The packaging looks nice but the product is overpriced for its effect.,2,2026-02-22,C051,Positive,0.2263,False,Negative,0.7973451018333435,False
+Daily Moisturizer,It is unscented and works as described on the label.,4,2026-02-23,C052,Neutral,0.0,False,Neutral,0.7736980319023132,True
+Daily Moisturizer,The cream separated in the container and smelled unpleasant.,1,2026-02-24,C053,Negative,-0.4767,False,Negative,0.8741229176521301,True
+Daily Moisturizer,The small tube is convenient for travel and does not spill.,4,2026-02-25,C054,Neutral,0.0,False,Positive,0.740729033946991,False
+Daily Moisturizer,I have used it for three days; the bottle has a twist top.,3,2026-02-26,C055,Positive,0.2023,False,Neutral,0.8592599630355835,False
+Daily Moisturizer,Very moisturizing with a clean finish; I would buy it again.,5,2026-02-27,C056,Positive,0.4019,False,Positive,0.9677507877349854,True
+Daily Moisturizer,The seal was missing when it arrived and support was unhelpful.,1,2026-02-28,C057,Positive,0.128,False,Negative,0.8854382038116455,False
+Daily Moisturizer,The product feels average and the size matches the listing.,3,2026-03-01,C058,Neutral,0.0,False,Negative,0.8856527805328369,False
+Daily Moisturizer,"Easy to carry, pleasant texture, and no sticky residue.",5,2026-03-02,C059,Positive,0.6124,False,Positive,0.9107374548912048,True
+Daily Moisturizer,The dispenser wastes product and the scent is too strong.,2,2026-03-03,C060,Positive,0.5106,False,Negative,0.8415141105651855,False

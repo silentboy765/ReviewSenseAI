@@ -1,0 +1,6 @@
+pandas==2.3.3
+plotly==6.9.0
+streamlit==1.67.0
+vaderSentiment==3.3.2
+scikit-learn==1.9.1
+requests==2.34.2
