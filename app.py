@@ -241,7 +241,6 @@ def render_overview(data, names, engine_name, review_column):
     total = len(data)
     percentages = counts / total * 100 if total else counts.astype(float)
     net_score = ((counts["Positive"] - counts["Negative"]) / total * 100) if total else 0
-    cols = st.columns(6)
     values = [
         ("Total reviews", f"{total:,}", "Rows analyzed", "#a78bfa"),
         ("Positive", f"{counts['Positive']:,}", f"{percentages['Positive']:.1f}% of reviews", "#a78bfa"),
@@ -250,9 +249,10 @@ def render_overview(data, names, engine_name, review_column):
         ("Net sentiment", f"{net_score:+.1f}", "(Positive − Negative) / total × 100", "#10b981"),
         ("Positive share", f"{percentages['Positive']:.1f}%", "Share of analyzed reviews", "#8b5cf6"),
     ]
-    for column, args in zip(cols, values):
-        with column:
-            metric(*args)
+    for row_start in range(0, len(values), 3):
+        for column, args in zip(st.columns(3, gap="small"), values[row_start : row_start + 3]):
+            with column:
+                metric(*args)
 
     st.write("")
     left, right = st.columns([1, 1.35], gap="large")

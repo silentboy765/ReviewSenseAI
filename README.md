@@ -4,13 +4,13 @@
 
 ReviewSense AI is a responsive Streamlit website for classifying product reviews as **Positive**, **Negative**, or **Neutral**. Its primary inference engine is Cloudflare Workers AI, so visitors' phones and computers do not download or run a large model. VADER is an optional, explicitly labeled fallback. The project includes CSV upload, aspect-level predictions, keyword insights, interactive charts, review filters, evaluation against human labels, and CSV export.
 
-> **Deployment status:** The public repository is [silentboy765/ReviewSenseAI](https://github.com/silentboy765/ReviewSenseAI). The source still needs to be pushed and a Render service configured with Cloudflare credentials before there is a working public app URL. This repository link is not a live website URL.
+> **Live demo:** [https://reviewsense-ai-nves.onrender.com](https://reviewsense-ai-nves.onrender.com) · Hosted on Render's free instance. The instant sample demo and VADER work now; Cloudflare Workers AI is not yet configured, so live AI analysis requires adding your own Cloudflare credentials to Render's environment settings.
 
 ## What runs where?
 
 | Component | Runs at | Data handling |
 |---|---|---|
-| Streamlit website | Render Web Service after deployment | Receives uploads and holds data in application/session memory; no project database is used |
+| Streamlit website | [Render live demo](https://reviewsense-ai-nves.onrender.com) | Receives uploads and holds data in application/session memory; no project database is used |
 | Sentiment and aspects | Cloudflare Workers AI | Review text is sent server-to-server from Streamlit to Cloudflare |
 | VADER fallback | Streamlit app process | Rule/lexicon inference; it is not represented as an AI-model prediction |
 | Instant sample demo | Streamlit app process | Reads bundled, pre-analyzed sample predictions; makes no AI API request |
@@ -128,25 +128,20 @@ For local cloud inference, create `.streamlit/secrets.toml` from the example fil
 
 ## Public deployment on Render
 
-### 1. Push the source to GitHub
+### 1. Get the source from GitHub
 
-The public repository is [https://github.com/silentboy765/ReviewSenseAI](https://github.com/silentboy765/ReviewSenseAI). From the project folder, review and push the source:
+The public repository is [https://github.com/silentboy765/ReviewSenseAI](https://github.com/silentboy765/ReviewSenseAI). To work on another computer, clone it:
 
 ```bash
-git init
-git add .
-git status --short
-git commit -m "Deploy ReviewSense AI with Render"
-git branch -M main
-git remote add origin https://github.com/silentboy765/ReviewSenseAI.git
-git push -u origin main
+git clone https://github.com/silentboy765/ReviewSenseAI.git
+cd ReviewSenseAI
 ```
 
-Confirm `.streamlit/secrets.toml`, `.env`, `.venv`, and `__pycache__` are not staged. Do not put a GitHub token in the remote URL. If this folder already belongs to a Git repository, inspect its status and remotes instead of reinitializing it.
+For future changes, use `git status`, then `git add`, `git commit`, and `git push`. Confirm `.streamlit/secrets.toml`, `.env`, `.venv`, and `__pycache__` are not staged. Never put a GitHub token in the remote URL.
 
 ### 2. Configure Cloudflare Workers AI
 
-1. Create/sign into a Cloudflare account and open **Workers AI**.
+1. Create/sign into a Cloudflare account at [dash.cloudflare.com/sign-up](https://dash.cloudflare.com/sign-up) and open **Workers AI**. Account creation can require email verification.
 2. Stay on a plan with the free allocation if you require a no-charge limit. Do not enable paid billing. Provider limits, quotas, model access, and free allocations can change.
 3. From Workers AI, create a Workers AI API token using Cloudflare's recommended token flow. For a manually created token, grant only the needed Workers AI permissions (Cloudflare documents Workers AI Read and Edit for REST inference).
 4. Copy the account ID and token into a secure password manager. Do not commit them to GitHub.
@@ -154,12 +149,18 @@ Confirm `.streamlit/secrets.toml`, `.env`, `.venv`, and `__pycache__` are not st
 
 ### 3. Deploy the website to Render
 
-1. Sign in to [Render](https://dashboard.render.com/) and connect GitHub if prompted. Grant Render access to the `ReviewSenseAI` repository.
-2. Select **New** → **Blueprint** (or create a Web Service from the repository) and choose `silentboy765/ReviewSenseAI`, branch `main`.
-3. Render reads `render.yaml`, installs `requirements.txt`, and starts Streamlit on Render's assigned `$PORT`. The `.python-version` file selects Python 3.12.10.
-4. In the service's **Environment** settings, enter `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN`. `CLOUDFLARE_MODEL` is set by `render.yaml`.
-5. Save the environment settings and deploy. Render provides an `*.onrender.com` URL after the build succeeds.
-6. First test the pre-analyzed demo; then test a few non-sensitive reviews using Cloudflare AI. Verify AI output, VADER comparison, export, and actual Cloudflare usage before sharing the URL.
+The live service is already connected to `silentboy765/ReviewSenseAI` on branch `main`. To reproduce it, sign in to [Render](https://dashboard.render.com/), create a Web Service from the repository, and set:
+
+- Runtime: Python 3
+- Build command: `python -m pip install -r requirements.txt`
+- Start command: `streamlit run app.py --server.address 0.0.0.0 --server.port $PORT`
+- Instance: **Free** ($0/month; it can spin down when idle)
+
+These settings are also recorded in `render.yaml`. The `.python-version` file selects Python 3.12.10.
+
+To enable live Cloudflare AI on the existing service, open **Environment** in the Render dashboard and add `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN`. `CLOUDFLARE_MODEL` defaults to the model configured in the app. Save the values and redeploy. Do not send credentials in chat or commit them to GitHub.
+
+The public website is [https://reviewsense-ai-nves.onrender.com](https://reviewsense-ai-nves.onrender.com). The sample demo works without Cloudflare credentials. After setting them, test a few non-sensitive reviews using Cloudflare AI, then verify the VADER comparison, export, and actual Cloudflare usage before sharing.
 
 The API token is stored in Render's environment settings, not in GitHub or the browser. The app does not need a database or a separate Cloudflare Worker. Do not enable a paid Render instance or Cloudflare billing unless you have reviewed the costs and limits.
 
