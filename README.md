@@ -28,8 +28,19 @@ Uploaded data is not intentionally written to a database or file by the applicat
 - Cloud inference is batched in groups of four, with a 4,000-character per-review limit, bounded retries, a 30-request/minute process limit, and a 100-review/day process safety limit.
 - Session-level prediction caching avoids repeat API calls when navigating pages or applying filters.
 - Sentiment, rating, aspect, product-comparison, and AI/VADER charts use the active dataset.
+- Analytics also show rating distributions by predicted sentiment and phrase-frequency charts for positive and negative feedback.
 - Searchable review explorer, product/aspect/rating filters, extracted phrase counts, and enriched CSV download.
+- Overview cards include a data-derived average rating and the most frequent positive/negative multi-word phrase when the uploaded data supports them.
 - Accuracy, macro precision/recall/F1, and confusion matrix only when the user supplies ground-truth labels.
+- Provider and model identifiers are kept out of the regular UI and exported analysis source labels; the interface describes remote inference generically.
+
+## Website and app downloads
+
+The public website is usable in a modern desktop or mobile browser. The **Apps & Downloads** page reports platform availability honestly. At present, there is no installable PWA or verified Windows, macOS, Linux, Android, or iOS package in this repository.
+
+A real PWA requires a web app manifest and a service worker served with a scope that can control the app page. The current Streamlit deployment does not provide that product shell, so it is not labeled as installable. Native packages likewise require a separate packaging/build pipeline, platform testing, and—in some cases—signing credentials or platform-specific build machines. No download buttons are shown for packages that do not exist.
+
+The app remains a Streamlit website rather than the separate React/TypeScript frontend and FastAPI backend described as a possible future architecture. That choice preserves the existing working dashboard and keeps the deployment footprint small. Moving to a standalone frontend/backend split should be a separately scoped project before adding PWA and native builds.
 
 The local usage counter is **not Cloudflare's actual Neurons meter** and resets if the app process restarts. Cloudflare free allocations are account-wide and subject to provider policy. Review actual usage in the Cloudflare dashboard. On Workers Free, the published daily allocation is 10,000 Neurons and requests beyond the free allocation fail; paid plans may bill for usage beyond it. Do not enable billing or upgrade if you require a hard no-charge ceiling.
 
