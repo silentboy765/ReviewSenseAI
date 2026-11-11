@@ -109,6 +109,15 @@ def usage_caption():
     )
 
 
+def safe_ai_error(error):
+    message = str(error)
+    for technical_name in ("Cloudflare Workers AI", "Cloudflare AI", "Cloudflare"):
+        message = message.replace(technical_name, "the remote AI service")
+    for setting_name in ("CLOUDFLARE_ACCOUNT_ID", "CLOUDFLARE_API_TOKEN"):
+        message = message.replace(setting_name, "server-side credentials")
+    return message
+
+
 def figure_style(fig, height=340):
     fig.update_layout(
         template="plotly_dark",
@@ -229,7 +238,7 @@ def run_analysis(dataframe, review_column, requested_engine):
             )
         except CloudAIError as error:
             progress.empty()
-            st.error(str(error))
+            st.error(safe_ai_error(error))
             st.info("No silent fallback was applied. Select VADER fallback in the sidebar to analyze locally.")
             st.stop()
         finally:
@@ -238,6 +247,7 @@ def run_analysis(dataframe, review_column, requested_engine):
         prediction_cache[signature] = predictions
 
     result = add_prediction_columns(result, predictions, names)
+    result[names["source"]] = "AI-powered analysis"
     mode = "AI-powered analysis"
     return result, names, mode, None
 
@@ -577,7 +587,7 @@ def render_single_review_sandbox(engine_choice):
                         "engine": "AI-powered analysis",
                     }
                 except CloudAIError as error:
-                    st.error(str(error))
+                    st.error(safe_ai_error(error))
                     st.info("No silent fallback was applied. Select VADER fallback in the sidebar to analyze locally.")
     result = st.session_state.get("sandbox_result")
     if result:
@@ -776,7 +786,7 @@ def render_insights(data, review_column, names, engine_name):
                     model=model_name,
                 )
         except CloudAIError as error:
-            st.error(str(error))
+            st.error(safe_ai_error(error))
     summary = st.session_state.get("summary_cache", {}).get(summary_key)
     if summary:
         st.info(summary)
